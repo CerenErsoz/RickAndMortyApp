@@ -16,7 +16,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Welcome">
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Character" component={CharacterScreen} />

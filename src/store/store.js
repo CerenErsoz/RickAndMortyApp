@@ -1,12 +1,13 @@
 import { combineReducers, createStore } from "redux";
+import UserReducer from "../reducer/UserReducer";
 
 const initialState = {
-    isSignedIn: false,
-    userName: "Ceren"
+    userInfo: false,
+    userName: "Guest"
 }
 
 const rootReducer = combineReducers({
-    userData: () =>initialState
+    userData: UserReducer
 })
 
-export const store = createStore(rootReducer)
+export const store = createStore(rootReducer);
