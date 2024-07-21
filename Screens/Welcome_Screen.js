@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, Image, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { changeName, userInfo } from '../src/action/UserActions';
 
-  const WelcomeScreen = ({ navigation }) => {
-//   const name = useSelector(state => state.userData.userName);
-//   const userInfoCheck = useSelector(state => state.userData.userInfo);
+const WelcomeScreen = ({ navigation }) => {
   const [text, setText] = useState('');
   const dispatch = useDispatch();
 

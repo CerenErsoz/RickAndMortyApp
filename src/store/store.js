@@ -1,13 +1,10 @@
 import { combineReducers, createStore } from "redux";
 import UserReducer from "../reducer/UserReducer";
-
-const initialState = {
-    userInfo: false,
-    userName: "Guest"
-}
+import SearchReducer from "../reducer/SearchReducer";
 
 const rootReducer = combineReducers({
-    userData: UserReducer
+    userData: UserReducer,
+    searchData: SearchReducer,
 })
 
 export const store = createStore(rootReducer);
