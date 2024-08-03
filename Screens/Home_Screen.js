@@ -10,19 +10,19 @@ const HomeScreen = ({ navigation }) => {
   const userInfoCheck = useSelector(state => state.userData.userInfo);
   const name = useSelector(state => state.userData.userName);
 
-  async function handleOkPress () {
+  async function handleOkPress() {
     await dispatch(search(text));
   };
 
   return (
     <View style={styles.container}>
-      <BurgerMenu/>
+      <BurgerMenu />
       <Text style={styles.greetingText}>
         {!userInfoCheck ? 'Hi Guest' : `Hi ${name}`}
       </Text>
       <View style={styles.inputContainer}>
         <SafeAreaView style={styles.safeArea}>
-          <TextInput 
+          <TextInput
             style={styles.search}
             placeholder="Search"
             placeholderTextColor="#97ce4c"
@@ -32,6 +32,14 @@ const HomeScreen = ({ navigation }) => {
         </SafeAreaView>
         <TouchableOpacity style={styles.buttonOK} onPress={handleOkPress}>
           <Text style={styles.buttonText}>OK</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.nextPage}>
+        <TouchableOpacity style={styles.pageButton} onPress={() => navigation.navigate('Chapter')}>
+          <Text style={styles.buttonText}>CHAPTERS</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.pageButton} onPress={() => navigation.navigate('Character')}>
+          <Text style={styles.buttonText}>CHARACTERS</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -54,6 +62,7 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 20,
   },
   safeArea: {
     flex: 1,
@@ -82,6 +91,24 @@ const styles = StyleSheet.create({
     color: '#1c1c1c',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  nextPage: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+    right: 20,
+  },
+  pageButton: {
+    backgroundColor: '#97ce4c',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    marginHorizontal: 5,
   },
 });
 
